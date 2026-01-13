@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  smart-reply-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: quikapp-smart-reply-service
+    ports:
+      - "5019:5019"
+    environment:
+      - PORT=5019
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - redis
+    networks:
+      - quikapp-network
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+
+  redis:
+    image: redis:7-alpine
+    container_name: quikapp-smart-reply-redis
+    ports:
+      - "6388:6379"
+    networks:
+      - quikapp-network
+
+networks:
+  quikapp-network:
+    driver: bridge
