@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: quikapp-smart-reply-service
+    container_name: quckapp-smart-reply-service
     ports:
       - "5019:5019"
     environment:
@@ -15,7 +15,7 @@ services:
     depends_on:
       - redis
     networks:
-      - quikapp-network
+      - quckapp-network
     restart: unless-stopped
     deploy:
       resources:
@@ -24,12 +24,12 @@ services:
 
   redis:
     image: redis:7-alpine
-    container_name: quikapp-smart-reply-redis
+    container_name: quckapp-smart-reply-redis
     ports:
       - "6388:6379"
     networks:
-      - quikapp-network
+      - quckapp-network
 
 networks:
-  quikapp-network:
+  quckapp-network:
     driver: bridge

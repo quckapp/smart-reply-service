@@ -1,5 +1,5 @@
 """
-QuikApp Smart Reply Service
+QuckApp Smart Reply Service
 
 Provides AI-powered reply suggestions based on conversation context.
 """
@@ -25,7 +25,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="QuikApp Smart Reply Service",
+    title="QuckApp Smart Reply Service",
     description="AI-powered reply suggestions API",
     version="1.0.0",
     docs_url="/docs",
